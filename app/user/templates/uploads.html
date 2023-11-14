@@ -1,0 +1,45 @@
+{% extends "includes/base.html" %}
+{% include "header.html" %}
+
+{% block content %}
+
+<div class="bg-blue-gradient d-flex justify-content-start align-items-end vw-100 relative-banner">
+    <div class="container-md mb-3">
+    </div>
+</div>
+
+<div>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <label class="circle" for="inputAvatar" id="labelAvatar">
+            <div class="d-flex icon-upload">
+                <i class="fa-solid fa-camera" style="color: #ababab; font-size: 30px;"></i>
+                <i class="fa-solid fa-plus" style="color: #ababab; font-size: 30px;"></i>
+                <input id="inputAvatar" type="file" name="file">
+            </div>
+            
+
+            <img class="img-profile-b" src="/static/images/user-no-picture.png" alt="Foto de perfil" >
+
+        </label>
+    </form>    
+</div>
+
+<script>
+    let input = document.getElementById("inputAvatar");
+    let imageName = document.getElementById("imageName")
+
+    input.addEventListener("change", ()=>{
+        let inputImage = document.querySelector("input[type=file]").files[0];
+
+    })
+</script>
+
+<div>
+    {% for upload in uploads %}
+        <img src="{{ upload.data }}" alt="{{ upload.filename }}">
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

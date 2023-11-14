@@ -1,0 +1,29 @@
+{% extends "includes/base.html" %}
+{% include 'header.html' %}
+
+{% block title %} Pesquisar {% endblock %}
+
+{% block content %}
+
+<div class="bg-blue-gradient d-flex justify-content-center align-items-center vw-100" style="height: 450px;">
+    <h1 class="text-white">Verifique se existem<br>caronas para você</h1>
+    
+</div>
+
+<div class="d-flex justify-content-center" >
+    <div class="box-search pt-5">
+
+        <div class="col-10">
+                <form class="d-flex" method="POST" action="{{url_for('search')}}">
+                    {{ searchNameForm.hidden_tag() }}
+                    <input type="search" class="form-control" name="searchname" placeholder="Pesquise...">
+                    <button class="btn btn-primary ml-3" type="submit">Encontrar</button>
+                </form>
+        
+            <button class="mt-5 btn btn-outline-primary">Buscar por destino</button>
+        </div>    
+    </div>
+    
+</div>
+
+{% endblock %}

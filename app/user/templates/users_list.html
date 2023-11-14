@@ -1,0 +1,12 @@
+{% extends 'includes/base.html' %}
+
+{% block content %}
+    <title>{% block title %} Usuários {% endblock %}</title>
+
+    <h3>Usuários</h3>
+
+    {% for user in users %}
+        <p>{{ user.username }}</p>
+    {% endfor %}
+
+{% endblock %}

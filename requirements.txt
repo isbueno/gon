@@ -1,0 +1,15 @@
+Flask-DotEnv
+python-dotenv
+
+Flask==2.3.0
+Flask-Login==0.6.2
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate
+Flask-WTF==1.2.1
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+SQLAlchemy==2.0.21
+Werkzeug==2.3.0
+WTForms==3.0.1
+Flask-Bcrypt
+Flask-Uploads

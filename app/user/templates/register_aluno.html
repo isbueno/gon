@@ -1,0 +1,60 @@
+{% extends "includes/base.html" %}
+{% include 'header.html' %}
+
+{% block title %} Register Aluno {% endblock %}
+
+{% block content %}
+
+<div class="bg-blue-gradient d-flex justify-content-start align-items-end h-50 vw-100 ">
+	<div class="container-md mb-3">
+    <h1 class="text-white">Cadastre-se na GON</h1>
+    <p class="text-white">Já possui uma conta? Faça o seu <a class="font-weight-bold text-white" href="{{ url_for('user_blueprint.login') }}">login</a>.</p>
+  </div>
+</div>
+
+<div class="pt-5 container-md">
+    
+    <div>
+      <h2>Crie sua conta</h2>
+
+      <form method="POST" action="" class="pt-3" enctype="multipart/form-data">
+        {{ formUser.hidden_tag() }}
+        
+              {% include 'register_user.html' %}
+        
+              <br>
+              <h4>Qual a sua instituição?</h4>
+              <div class="form-group">
+                {{ formSchool.school(class="form-control p-4") }}
+              </div>
+
+              <br>
+              <br>
+              <h4>Informe seu endereço</h4>
+              <br>
+
+            <div class="form-group">
+              {{ formAddress.zipcode(class="form-control p-4") }}
+            </div>
+            <div class="form-group">
+              {{ formAddress.street(class="form-control p-4") }}
+            </div>
+            <div class="form-group">
+              {{ formAddress.number(class="form-control p-4") }}
+            </div>
+            <div class="form-group">
+              {{ formAddress.neighborhood(class="form-control p-4") }}
+            </div>
+            <div class="form-group">
+              {{ formAddress.city(class="form-control p-4") }}
+            </div>
+            <div class="form-group">
+              {{ formAddress.state(class="form-control p-4") }}
+            </div>
+            {{ formUser.submit(class='btn btn-primary') }}
+
+      </form>
+    </div>
+ 
+</div>
+{% endblock %}

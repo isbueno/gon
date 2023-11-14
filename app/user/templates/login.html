@@ -1,0 +1,44 @@
+{% extends "includes/base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+<div class="bg-sign-in d-flex justify-content-center align-items-center vh-100 vw-100 ">
+	
+	<div class="blur-effect"></div>
+		<div class="col-4 card-sign-in p-2 d-flex justify-content-center">
+			<div class="d-flex flex-column col-10 card-content">
+    
+				<img class="m-auto" src="/static/images/logo-blue.png" alt="logo-gon" width="280px" height="120px">
+				<h3 class="mb-2 text-center text-grey ">Faça seu login</h3>
+				<br>
+
+				<form action="{{ url_for('user_blueprint.login') }}" method="POST">
+					{{ form.hidden_tag() }}
+
+					<div class="form-group row mb-4 form-inputs">
+						<i class="fa-solid fa-envelope fa-lg col-2 " ></i>
+						{{ form.email(class="form-control col-10 p-4") }}
+					</div>
+					<div class="row mb-4 form-inputs">
+						<i class="fa-solid fa-lock fa-lg col-2"></i>
+						{{ form.password(class="form-control col-10 p-4 text-muted") }}
+					</div>
+		
+					<p><a class="justify-content-start text-link-blue" href="">Esqueceu sua senha?</a></p>
+					<br>
+					<div class="text-center">
+						{{ form.submit(class="btn btn-primary btn-lg px-5") }}
+					</div>
+
+				</form>
+
+				<br>
+				<p class="mb-0 text-center text-grey">Ainda não tem uma conta?</p>
+				<p class=" text-center text-grey">Faça seu <a class="text-primary" href="{{ url_for('user_blueprint.register_options') }}">cadastro</a>.</p>
+			</div>
+		</div>
+	
+</div>
+{% endblock %}

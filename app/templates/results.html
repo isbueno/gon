@@ -1,0 +1,52 @@
+{% extends 'includes/base.html' %}
+{% include 'header.html' %}
+
+{% block content %}
+
+<div class="bg-blue-gradient d-flex justify-content-start align-items-end h-50 vw-100 ">
+	<div class="container-md mb-3">
+    <h1 class="text-white col-6">Você procurou por: {{ searched }}</h1>
+  </div>
+</div>
+
+<div class="container-md pt-5"> 
+
+    {% if users %}
+
+    <div class="row justify-content-start">
+        {% for user in users %}
+        
+        <div class="card-profile col-3">
+            <a href="{{ url_for('user_blueprint.profile', user_id=user.id) }}">
+                
+                <div>
+                    <img class="mx-auto d-block" src="/static/images/car-picture.jpg" alt="Foto de perfil" width="175px" height="150px"/>
+                    <img class="d-flex justify-content-start" src="/static/images/user-no-picture.png" alt="Foto de perfil" width="80px" height="80px" style="margin-top: -50px;border-radius: 100px;"/>
+    
+                    <h3>{{ user.username }}</h3>
+                    <div class="d-flex justify-content-start align-items-baseline">
+                        <i class="fa-solid fa-star" style="color: #fff71a;"></i><p class="pl-2">4,5</p>
+                
+                    </div>
+
+                </div>
+
+            </a>
+        </div>
+            {% if loop.index % 3 == 0 %}
+                </div> <!-- fecha a row e abre a próxima -->
+                <div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    {% else %}
+        
+        <h3 class="mt-5">Nada encontrado.</h3>
+    
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
